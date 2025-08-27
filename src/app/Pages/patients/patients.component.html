@@ -1,0 +1,99 @@
+<div class="container mt-4 patients-list">
+  <div class="d-flex justify-content-between align-items-center mb-4 header-bar">
+    <h1 class="title">Pacientes</h1>
+    <a routerLink="/patients/new" class="btn btn-primary shadow-sm">
+      <i class="bi bi-plus-lg me-1"></i> Novo Paciente
+    </a>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-3">
+      <label for="perPage" class="form-label fw-semibold">Itens por página:</label>
+      <select id="perPage" class="form-select" [(ngModel)]="perPage" (change)="onChangePerPage(perPage)">
+        <option *ngFor="let opt of perPageOptions" [value]="opt">{{ opt }}</option>
+      </select>
+    </div>
+  </div>
+
+  @if (loading) {
+    <div class="loading-state text-center my-5">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-3 text-muted">Carregando pacientes...</p>
+    </div>
+  }
+
+  @if (error) {
+    <div class="alert alert-danger shadow-sm" role="alert">
+      {{ error }}
+    </div>
+  }
+
+  @if (!loading && patient.length > 0) {
+    <div class="table-responsive shadow-sm rounded">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Endereço</th>
+            <th class="text-end">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (p of patient; track p.id) {
+            <tr>
+              <td class="fw-medium">{{ p.name }}</td>
+              <td>{{ p.date_of_birth | date:'dd/MM/yyyy' }}</td>
+              <td>{{ p.adress }}</td>
+              <td class="text-end">
+                <a [routerLink]="['/patients/edit', p.id]" class="btn btn-sm btn-outline-primary me-2">
+                  <i class="bi bi-pencil-square me-1"></i> Editar
+                </a>
+                <button (click)="deletePatient(p.id)" class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash me-1"></i> Excluir
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <nav aria-label="Paginação" class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+      <div class="text-muted small">
+        Exibindo <span class="fw-semibold">{{ startItem }}–{{ endItem }}</span> de <span class="fw-semibold">{{ total }}</span>
+      </div>
+      <ul class="pagination mb-0">
+        <li class="page-item" [class.disabled]="page === 1">
+          <button class="page-link" (click)="firstPage()" aria-label="Primeira">
+            ««
+          </button>
+        </li>
+        <li class="page-item" [class.disabled]="page === 1">
+          <button class="page-link" (click)="prevPage()" aria-label="Anterior">
+            «
+          </button>
+        </li>
+        <li class="page-item disabled">
+          <span class="page-link">Página {{ page }} de {{ totalPages }}</span>
+        </li>
+        <li class="page-item" [class.disabled]="page === totalPages">
+          <button class="page-link" (click)="nextPage()" aria-label="Próxima">
+            »
+          </button>
+        </li>
+        <li class="page-item" [class.disabled]="page === totalPages">
+          <button class="page-link" (click)="lastPage()" aria-label="Última">
+            »»
+          </button>
+        </li>
+      </ul>
+    </nav>
+  }
+
+  @if (!loading && patient.length === 0) {
+    <div class="alert alert-info shadow-sm text-center" role="alert">
+      Nenhum paciente encontrado.
+    </div>
+  }
+</div>

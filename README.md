@@ -1,59 +1,77 @@
-# FrontPatient
+# 🏥 Patient Manager - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+![Angular](https://img.shields.io/badge/Angular-19-red?logo=angular\&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap\&logoColor=white)
 
-## Development server
+Um sistema simples de gerenciamento de pacientes, desenvolvido em **Angular 19** no frontend.
+Permite listar, cadastrar, editar e excluir pacientes de forma prática, consumindo uma API REST.
 
-To start a local development server, run:
+---
+
+## ✨ Funcionalidades
+
+* 📋 Listagem de pacientes
+* ➕ Cadastro de novos pacientes
+* ✏️ Edição de dados existentes
+* 🗑️ Exclusão com confirmação
+* 🔄 Paginação de registros
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* ⚡ Angular 19 (standalone components, router, forms)
+* 🎨 Bootstrap 5 (estilização)
+* 🌐 HTTPClient (consumo da API REST)
+
+---
+
+## 📂 Estrutura de Pastas (Frontend)
+
+```
+src/
+ ├── app/
+ │    ├── Pages/
+ │    │     ├── patients/
+ │    │     │     ├── patients.component.ts
+ │    │     │     ├── patients.component.html
+ │    │     │     └── patients.component.css
+ │    │     ├── patients-form/
+ │    │     │     ├── patients-form.component.ts
+ │    │     │     ├── patients-form.component.html
+ │    │     │     └── patients-form.component.css
+ │    │
+ │    ├── services/
+ │    │     └── patient.service.ts
+ │    │
+ │    └── app.routes.ts
+ │
+ └── main.ts
+```
+
+---
+
+## ⚙️ Instalação e Execução
+
+### 🔽 Clonar o repositório
 
 ```bash
+git clone https://github.com/abnerdavii/Frontend-Patient-next_code.git
+cd Front-Patient
+```
+
+### ▶️ Frontend (Angular 19)
+
+```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse em: [http://localhost:4200/](http://localhost:4200/)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 👨‍💻 Autor
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Desenvolvido por **Abner Davi** 💻
+📌 Projeto acadêmico para prática de **Angular**
