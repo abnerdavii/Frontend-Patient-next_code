@@ -74,4 +74,4 @@ Acesse em: [http://localhost:4200/](http://localhost:4200/)
 ## 👨‍💻 Autor
 
 Desenvolvido por **Abner Davi** 💻
-📌 Projeto acadêmico para prática de **Angular**
+📌 Desafio para prática de **Angular**
